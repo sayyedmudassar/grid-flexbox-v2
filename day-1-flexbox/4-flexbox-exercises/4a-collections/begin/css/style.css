@@ -17,6 +17,11 @@ Clearly there is more you could place in variables, up to you if you want to use
 
 /* generic site styles */
 
+*{
+    padding: 0;
+    margin: 0;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -44,15 +49,78 @@ section h2 {
     font-size: 2.5rem;
 }
 
+#collections ul li{
+    list-style: none;
+}
+
+#collections ul li a{
+    color: #001219;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.border-9b2226{
+    border: 5px solid #9b2226;
+}
+.border-94d28d{
+    border: 5px solid #94d28d;
+}
+.border-ee9800{
+    border: 5px solid #ee9800;
+}
+.border-005f73{
+    border: 5px solid #005f73;
+}
+.border-ca6702{
+    border: 5px solid #ca6702;
+}
+.border-3d9397{
+    border: 5px solid #3d9397;
+}
+
+
 
 /* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. */
+figure img{
+    width: 100%;
+}
 
+figure{
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 0.5rem;
+    position: relative;
+
+}
+figcaption{
+    padding: 0.5rem;
+    background: #e9d8a6;
+    width:100%;
+    position:absolute;
+    bottom:0%;
+}
 
 /* At this breakpoint, transition to 2 figures per line */
 
-@media (min-width: 550px) {}
+@media (min-width: 550px) {
+    ul{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    li{
+        flex-basis: 48%;
+    }
+}
 
 
 /* At this breakpoint, transition to 3 figures per line */
 
-@media (min-width: 800px) {}
+@media (min-width: 800px) {
+    #collections ul{
+        padding: 1rem;
+    }
+    li{
+        flex-basis:33%;
+    }
+}
