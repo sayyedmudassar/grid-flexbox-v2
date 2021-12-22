@@ -16,111 +16,51 @@ Clearly there is more you could place in variables, up to you if you want to use
 
 
 /* generic site styles */
-
-*{
-    padding: 0;
-    margin: 0;
+html{
+    box-sizing:border-box;
 }
-
-html {
-    box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
+*, 
+*::after,
+*::after{
     box-sizing: inherit;
 }
 
-body {
+body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #DBE5DE;
     padding: 0;
     margin: 0;
 }
-
-section {
-    max-width: 1200px;
+section{
+    max-width:1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
-
-section h2 {
+section h2{
     font-size: 2.5rem;
 }
 
-#collections ul li{
-    list-style: none;
+/* Specific stylings */
+section ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
-#collections ul li a{
-    color: #001219;
-    text-decoration: none;
-    font-size: 1.5rem;
-}
+/* To keep mobile screens from being stupid long, 
+consider setting max height on the images and hide the overflow 
 
-.border-9b2226{
-    border: 5px solid #9b2226;
-}
-.border-94d28d{
-    border: 5px solid #94d28d;
-}
-.border-ee9800{
-    border: 5px solid #ee9800;
-}
-.border-005f73{
-    border: 5px solid #005f73;
-}
-.border-ca6702{
-    border: 5px solid #ca6702;
-}
-.border-3d9397{
-    border: 5px solid #3d9397;
-}
-
-
-
-/* Initial mobile layout: a series of images stacked on top of each other with the figure caption over the image. */
-figure img{
-    width: 100%;
-}
+Individual border styles are used so that we can set it later individually.
+Styling is same for all borders except color
+*/
 
 figure{
-    display: flex;
-    flex-flow: column nowrap;
-    margin-bottom: 0.5rem;
-    position: relative;
-
-}
-figcaption{
-    padding: 0.5rem;
-    background: #e9d8a6;
-    width:100%;
-    position:absolute;
-    bottom:0%;
-}
-
-/* At this breakpoint, transition to 2 figures per line */
-
-@media (min-width: 550px) {
-    ul{
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-    }
-    li{
-        flex-basis: 48%;
-    }
-}
-
-
-/* At this breakpoint, transition to 3 figures per line */
-
-@media (min-width: 800px) {
-    #collections ul{
-        padding: 1rem;
-    }
-    li{
-        flex-basis:33%;
-    }
+    max-height: 400px;
+    margin: 0 0 0.5rem 0;
+    padding:0;
+    overflow: hidden;
+    border-width: 10px;
+    border-style: solid;
+    border-radius: 5px;
+    position:relative;
 }
