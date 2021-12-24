@@ -64,3 +64,118 @@ figure{
     border-radius: 5px;
     position:relative;
 }
+
+/* Comment margin-bottom:-4px and observe 
+figures from 0 to 325 window width.
+You will notice a thin empty space between
+Image and lower border of figure. negative margin to 
+figure removes it.
+*/
+
+figure img{
+    margin-bottom: -4px;
+    width: 100%;
+    object-fit: cover;
+    /* BUG: IN FRONTEND SCRIPT: because of -150px on screens smaller than 430px there is a gap between image and lower-edge of the figure */
+    /* I progressively introduced object position on screens from 400px to 550px */
+    /* object-position: 0 -150px; */
+}
+
+figcaption{
+    background-color: rgba(255,255,255,0.8);
+    font-size:1.875rem;
+    margin:0;
+    padding:0;
+    position: absolute;
+    bottom: 0;
+    width:100%;
+}
+
+figcaption a{
+    display: block;
+    padding: 1rem;
+    text-decoration:none;
+    color: var(--color1);
+}
+
+/* styling border color and hover color */
+.color2,
+.color2 a:hover{
+    border-color:var(--color2);
+    /* the font color will change to this on hover */
+    color:var(--color2);
+}
+.color3,
+.color3 a:hover{
+    border-color:var(--color3);
+    /* the font color will change to this on hover */
+    color:var(--color3);
+}
+.color4,
+.color4 a:hover{
+    border-color:var(--color4);
+    /* the font color will change to this on hover */
+    color:var(--color4);
+}
+.color6,
+.color6 a:hover{
+    border-color:var(--color6);
+    /* the font color will change to this on hover */
+    color:var(--color6);
+}
+.color7,
+.color7 a:hover{
+    border-color:var(--color7);
+    /* the font color will change to this on hover */
+    color:var(--color7);
+}
+.color8,
+.color8 a:hover{
+    border-color:var(--color8);
+    /* the font color will change to this on hover */
+    color:var(--color8);
+}
+
+/* when screen size grows, because of max-height property of figure in combination with object-fit cover, the main content of image is hidden (overflow) hence we pull image up in succession */
+@media (min-width:400px){
+    figure img{
+        object-position: 0 -100px;
+    }
+   }
+   
+
+@media (min-width:435px){
+ figure img{
+     object-position: 0 -150px;
+ }
+}
+
+/* turn on flexbox here - prior to this, elements stacked individually as blocks */
+@media (min-width:550px){
+    section ul{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+    section li{
+        flex-basis:49.5%;
+    }
+    /* turn off object position, inherit object-fir: cover */
+    /* if you do not do this, then in tablet mode empty space will
+       emerge between image and bottom border of figure
+       Reason: Figure container is small, hence images are small and 
+       we are pulling images further up by 150px
+    */
+    figure img{
+        object-position: 0;
+    }
+}
+
+@media (min-width:800px){
+    section h2{
+        margin-left: 100px;
+    }
+    section li{
+        flex-basis: 32.5%;
+    }
+}
